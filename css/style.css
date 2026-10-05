@@ -1,0 +1,396 @@
+/* ===== [Custom] CSS Variables ===== */
+/* Warna sesuai PRD: BG #F8F9FA, Primary #4F46E5, Secondary #6366F1, Accent #0EA5E9, Text #1E293B */
+:root {
+  --bg: #F8F9FA;
+  --bg-card: #FFFFFF;
+  --primary: #4F46E5;
+  --secondary: #6366F1;
+  --accent: #0EA5E9;
+  --text: #1E293B;
+  --text-muted: #64748B;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --radius: 18px;
+  --nav-bg: rgba(248, 249, 250, 0.95);
+}
+
+/* [Custom] Dark Mode — override variabel warna */
+[data-theme="dark"] {
+  --bg: #0F172A;
+  --bg-card: #1E293B;
+  --primary: #818CF8;
+  --secondary: #f0f2fc;
+  --accent: #38BDF8;
+  --text: #F1F5F9;
+  --text-muted: #94A3B8;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.4);
+  --nav-bg: rgba(15, 23, 42, 0.95);
+}
+
+/* [Custom] Override Bootstrap .bg-light untuk Dark Mode */
+[data-theme="dark"] .bg-light {
+  background-color: #1a1f35 !important;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+[data-theme="dark"] .text-muted {
+  color: var(--text-muted) !important;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ===== [Custom] Navbar ===== */
+/* Hover, Shadow, Animasi */
+#mainNav {
+  background: var(--nav-bg);
+  backdrop-filter: blur(10px);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+#mainNav.nav-scrolled {
+  box-shadow: var(--shadow);
+}
+
+#mainNav .navbar-brand {
+  color: var(--primary);
+  font-size: 1.5rem;
+  letter-spacing: -0.5px;
+}
+
+#mainNav .nav-link {
+  color: var(--text);
+  font-weight: 500;
+  transition: color 0.3s ease;
+  padding: 0.5rem 1rem;
+}
+
+#mainNav .nav-link:hover {
+  color: var(--primary);
+}
+
+#darkModeToggle {
+  background: var(--bg-card);
+  color: var(--text);
+  border: 1px solid transparent;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#darkModeToggle:hover {
+  box-shadow: var(--shadow);
+  color: var(--primary);
+}
+
+/* ===== [Custom] Hero ===== */
+/* Warna, Shadow, Border radius, Animasi */
+.hero-section {
+  min-height: 100vh;
+  padding-top: 80px;
+}
+
+.hero-img-wrapper {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--primary);
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.3s ease;
+}
+
+.hero-img-wrapper:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-greeting {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.hero-name {
+  font-size: 3rem;
+  color: var(--text);
+  letter-spacing: -1px;
+}
+
+.hero-typed {
+  font-size: 1.3rem;
+  min-height: 2rem;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+/* ===== [Custom] Section Umum ===== */
+/* Padding, Warna, Border radius */
+.section-padding {
+  padding: 100px 0;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  color: var(--text);
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--primary);
+  border-radius: 2px;
+  margin: 12px auto 0;
+}
+
+/* ===== [Custom] About ===== */
+/* Card: Warna, Hover, Shadow, Border radius 18px, Animasi */
+.about-card {
+  background: var(--bg-card);
+  padding: 28px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.5s ease, transform 0.5s ease;
+  height: 100%;
+}
+
+.about-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
+}
+
+.about-card h5 {
+  color: var(--primary);
+}
+
+.about-card blockquote {
+  color: var(--text-muted);
+  border-left: 3px solid var(--accent);
+  padding-left: 16px;
+}
+
+.badge-skill {
+  background: var(--primary);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+/* ===== [Custom] Skills ===== */
+/* Progress Bar: Warna, Shadow, Border radius */
+.progress {
+  height: 12px;
+  border-radius: 50px;
+  background: var(--bg-card);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.progress-bar {
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  border-radius: 50px;
+  transition: width 0.8s ease;
+}
+
+/* ===== [Custom] Projects ===== */
+/* Card: Warna, Hover, Shadow, Border radius 18px, Animasi */
+#projects .card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+#projects .card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-8px);
+}
+
+.project-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(79, 70, 229, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 1.8rem;
+  color: var(--primary);
+}
+
+#projects .card-title {
+  color: var(--text);
+}
+
+#projects .badge {
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+
+/* ===== [Custom] Contact ===== */
+/* Form: Warna, Border radius, Shadow saat focus */
+#contactForm .form-control {
+  border-radius: 12px;
+  padding: 12px 16px;
+  border: 2px solid transparent;
+  color: var(--text);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contactForm .form-control:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+#contactForm .form-label {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* ===== [Custom] Button ===== */
+/* Hover, Shadow, Animasi */
+.btn-primary {
+  background: var(--primary);
+  border: none;
+  padding: 12px 32px;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: var(--secondary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* ===== [Custom] Footer ===== */
+/* Hover, Shadow, Border radius, Animasi */
+.footer-section {
+  background: var(--bg-card);
+  padding: 40px 0;
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 1.3rem;
+  margin: 0 6px;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+}
+
+.social-link:hover {
+  background: var(--primary);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.footer-section p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-section {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+  .hero-name {
+    font-size: 2.2rem;
+  }
+
+  .hero-typed {
+    font-size: 1.1rem;
+  }
+
+  .hero-img-wrapper {
+    width: 200px;
+    height: 200px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .section-padding {
+    padding: 70px 0;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .hero-name {
+    font-size: 1.8rem;
+  }
+
+  .hero-img-wrapper {
+    width: 160px;
+    height: 160px;
+  }
+
+  .section-padding {
+    padding: 50px 0;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .about-card {
+    padding: 20px;
+  }
+}
